@@ -1,0 +1,19 @@
+/**
+ * FILENAME:    calculator-css.css
+ * DESCRIPTION: This is the CSS for codyschindler.com/fcc/calculator.
+ * REQS:        n/a
+ * VERISON:     1.0.0
+ * UPDATED:     2015-11-03
+ * WRITTEN BY:  Cody Schindler (quiksand)
+ * ORGANIZATION: 
+ * CHANGELOG:  
+ * 1.0.0 (2015-11-03): Creation
+ */
+
+/*fix git*/
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+}
