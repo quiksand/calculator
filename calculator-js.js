@@ -46,47 +46,71 @@ $(document).ready(function(){
 	}
 
 	$(".num").click(function(){
-		if(lastKey == "="){$(".displayRegister").text("");}
+		if(lastKey == "="){
+			$(".displayRegister").text("");
+			regOne = "";
+		}
 		//if(displayVar == "0"){$(".displayEntry").text("");}
 		displayVar += $(this).text();
 		$(".displayEntry").text(displayVar);
 		//$(".displayRegister").text($(".displayRegister").text() + $(this).text());
 		regTwo = parseFloat(displayVar);
 		lastKey = $(this).text();
-		console.log(regOne, currentOperator, regTwo);
 	}); //num.click()
 
 	$(".operator").click(function(){
+
 		if($.isNumeric(lastKey)){
 			regOne = regOperate();
 		}
 		currentOperator = $(this).text();
 		displayVar = regOne + " " + currentOperator + " ";
-		console.log("displayVar: " + displayVar)
 		$(".displayRegister").text(displayVar);
 		displayVar = "";
+
+		if(lastKey == "="){displayVar = regOne;}
 		$(".displayEntry").text(displayVar);
-		console.log(regOne, currentOperator, regTwo);
 		lastKey = $(this).text();
+		displayVar = "";
+		console.log(lastKey);
+
 	}); //operator.click()
 
-	$(".equal").click(function(){
-		var tempp = $(".displayEntry").text();
 
+
+
+
+	$(".equal").click(function(){
+		console.log(regOne, currentOperator, regTwo);
+		var tempp = $(".displayEntry").text();
 		displayVar = regOne + " " + currentOperator + " " + regTwo + " = ";
-		if(currentOperator == "="){displayVar = tempp + " = ";}
+
+		console.log("regOne: "+regOne);
+ 		if(lastKey == "X"){
+ 			displayVar = regOne + " = ";}
+ 		else if(lastKey == "/"){
+ 			displayVar = regOne + " = ";}
+ 		else if(lastKey == "+"){
+ 			displayVar = regOne + " = ";}
+ 		else if(lastKey == "-"){
+ 			displayVar = regOne + " = ";}
+ 		else if(lastKey == "%"){
+ 			displayVar = regOne + " = ";}
+ 		else if(lastKey == "="){
+ 			displayVar = regOne + " = ";
+ 			console.log("hey");
+ 		}
+		// if(lastKey == "="){displayVar = tempp + " = ";}
 		$(".displayRegister").text(displayVar);
 		if($.isNumeric(lastKey)){
 			regOne = regOperate();
 		}
 		currentOperator = $(this).text();
-		console.log("displayVar: " + displayVar)
 		displayVar = regOne == "" ? "0" : regOne;
 		$(".displayEntry").text(displayVar);
-		console.log(regOne, currentOperator, regTwo);
-		lastKey = $(this).text();
-		console.log($(this).text());
+		lastKey = "=";
 		displayVar = "";
+
 	}); //equal.click()
 
 
