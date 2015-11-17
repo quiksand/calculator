@@ -1,7 +1,8 @@
 # calculator
 
 ##About
-This is a calculator application
+This is a calculator application.
+
 It was created to satisfy the requirements of the fourth Free Code Camp Zipline.
 
 ##Latest Live Version
