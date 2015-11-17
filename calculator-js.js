@@ -10,7 +10,7 @@
  * 1.0.0 (2015-11-03): Creation
  * 1.0.1 (2015-11-09): Deployment-nevermind
  * 1.0.2 (2015-11-12): Started from scratch on JS. Much cleaner now.
- * 1.0.3 (2015-11-16): Deploym
+ * 1.0.3 (2015-11-16): Deployment
 **/
 //TODO: 
 //Floating point erros can occur on division and modulo, although most should be rounded out. Should be fixed for other ops.
@@ -26,7 +26,6 @@ $(document).ready(function(){
 	//performs operations and returns the result
 	function regOperate(){
 		var result = 0;
-		console.log(regOne, regTwo);
 		switch(currentOperator){
 			case '/':
 				result = regOne / regTwo;
@@ -38,7 +37,6 @@ $(document).ready(function(){
 				var temp2 = 0;
 				var correctionFactor = 1;
 				if((String(regOne).indexOf(".")!= -1)||(String(regTwo).indexOf(".")!= -1)){
-					console.log("here");
 					if(String(regOne).indexOf(".") != -1){
 						temp1 = String(regOne).length-String(regOne).indexOf(".");
 					}
@@ -47,10 +45,8 @@ $(document).ready(function(){
 					}
 					correctionFactor = Math.pow(10, Math.max(temp1, temp2));
 				}
-				console.log(typeof regOne, typeof regTwo);
 				result = Number(regOne)*correctionFactor * Number(regTwo)*correctionFactor;
 				result /= Math.pow(correctionFactor, 2);
-				console.log(typeof regOne, typeof regTwo);
 				break;
 			case '+':
 				var temp1 = 0;
@@ -58,7 +54,6 @@ $(document).ready(function(){
 				// if(temp1.indexOf)
 				var correctionFactor = 1;
 				if((String(regOne).indexOf(".")!= -1)||(String(regTwo).indexOf(".")!= -1)){
-					console.log("here");
 					if(String(regOne).indexOf(".") != -1){
 						temp1 = String(regOne).length-String(regOne).indexOf(".");
 					}
@@ -67,17 +62,14 @@ $(document).ready(function(){
 					}
 					correctionFactor = Math.pow(10, Math.max(temp1, temp2));
 				}
-				console.log(typeof regOne, typeof regTwo);
 				result = Number(regOne)*correctionFactor + Number(regTwo)*correctionFactor;
 				result /= correctionFactor;
-				console.log(typeof regOne, typeof regTwo);
 				break;
 			case '-':
 				var temp1 = 0;
 				var temp2 = 0;
 				var correctionFactor = 1;
 				if((String(regOne).indexOf(".")!= -1)||(String(regTwo).indexOf(".")!= -1)){
-					console.log("here");
 					if(String(regOne).indexOf(".") != -1){
 						temp1 = String(regOne).length-String(regOne).indexOf(".");
 					}
@@ -86,10 +78,8 @@ $(document).ready(function(){
 					}
 					correctionFactor = Math.pow(10, Math.max(temp1, temp2));
 				}
-				console.log(typeof regOne, typeof regTwo);
 				result = Number(regOne)*correctionFactor - Number(regTwo)*correctionFactor;
 				result /= correctionFactor;
-				console.log(typeof regOne, typeof regTwo);
 				break;
 			case '%':
 				result = regOne % regTwo;
